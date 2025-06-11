@@ -12,22 +12,25 @@ import {ProductSearchService} from "../../../services/product-search.service";
 export class ProductsComponent implements OnInit, OnDestroy {
   protected isCatalogLoaded: boolean = false;
   protected products: ProductType[] = [];
-  protected searchQuery: string = '';
+  protected searchQuery: string | undefined = '';
 
   private productLoadingSubscription: Subscription | null = null;
   private searchSubscription: Subscription | null = null;
 
-  constructor(private productService: ProductService,
-              private productSearchService: ProductSearchService) {
+  constructor(private productService: ProductService) {
   }
 
   ngOnInit(): void {
-    this.searchSubscription = this.productSearchService.hasSearchInput$.subscribe(query => this.searchQuery = query);
     this.getProductsList();
+    this.searchSubscription = this.productService.hasSearchInput$.subscribe(query => {
+      this.getProductsList(query);
+    });
   }
 
-  getProductsList(): any {
-    this.productLoadingSubscription = this.productService.getProducts(this.searchQuery ? this.searchQuery : '')
+  getProductsList(query?: string): any {
+    this.searchQuery = query;
+    this.isCatalogLoaded = false;
+    this.productLoadingSubscription = this.productService.getProducts(query ? query : '')
       .pipe(
         finalize(() => {
           this.isCatalogLoaded = true;

@@ -5,7 +5,8 @@
     <h2 class="text-center mb-5">Наши чайные коллекции</h2>
   </ng-template>
   <ng-template #searchHeader>
-    <h2 class="text-center mb-5">Результаты поиска по запросу "{{ searchQuery }}"</h2>
+    <h2 class="text-center mb-5" *ngIf="products.length > 0">Результаты поиска по запросу "{{ searchQuery }}"</h2>
+    <h2 class="text-center mb-5" *ngIf="products.length === 0">Ничего не найдено</h2>
   </ng-template>
 
 

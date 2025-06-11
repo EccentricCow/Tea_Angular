@@ -1,6 +1,5 @@
-import {Component, OnDestroy} from '@angular/core';
-import {ProductSearchService} from "../../../services/product-search.service";
-import {Subscription} from "rxjs";
+import {Component} from '@angular/core';
+import {ProductService} from "../../../services/product.service";
 
 @Component({
   selector: 'header-component',
@@ -10,10 +9,12 @@ import {Subscription} from "rxjs";
 export class HeaderComponent {
   protected searchQuery: string = '';
 
-  constructor(private productSearchService: ProductSearchService) {
+  constructor(private productService: ProductService) {
   }
 
   onSearchChange() {
-    this.productSearchService.searchStart(this.searchQuery);
+    if (this.searchQuery !== this.productService.searchQuery) {
+      this.productService.searchStart(this.searchQuery);
+    }
   }
 }
