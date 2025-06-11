@@ -1,0 +1,20 @@
+<section class="products my-2 py-3 my-md-5 container-sm">
+  <div *ngIf="searchQuery then searchHeader else defaultHeader"></div>
+
+  <ng-template #defaultHeader>
+    <h2 class="text-center mb-5">Наши чайные коллекции</h2>
+  </ng-template>
+  <ng-template #searchHeader>
+    <h2 class="text-center mb-5">Результаты поиска по запросу "{{ searchQuery }}"</h2>
+  </ng-template>
+
+
+  <div class="d-flex justify-content-center align-items-start row row-cols-lg-3 row-cols-sm-1 g-4">
+    <product-card-component *ngFor="let product of products" class="w-auto"
+                            [product]="product"></product-card-component>
+  </div>
+</section>
+
+<div *ngIf="!isCatalogLoaded" class="loader">
+  <div></div>
+</div>

@@ -1,0 +1,95 @@
+<section class="order py-3 my-md-5">
+
+  <div *ngIf="isOrderCreated; then orderThanks else form"></div>
+
+  <ng-template #form>
+    <div class="order__inner">
+      <h2 class="text-center mb-5">Сделать заказ</h2>
+      <form [formGroup]="orderForm"
+            class="order__form row g-3 g-sm-5 container-sm mx-auto" novalidate
+            id="order-form">
+
+        <fieldset disabled class="col-12 px-3 order__form_err">
+          <label for="productInput" class="form-label">Товар</label>
+          <input formControlName="product" type="text" class="form-control" id="productInput">
+        </fieldset>
+
+        <div class="col-md-4 col-sm-6 px-3 order__form_err">
+          <label for="inputName" class="form-label">Имя</label>
+          <input formControlName="name" type="text" class="form-control" id="inputName">
+          <div *ngIf="name?.invalid && (name?.touched || name?.dirty)">
+            <div *ngIf="name?.errors?.['required']" class="text-danger text-error">First name is required.</div>
+            <div *ngIf="name?.errors?.['pattern']" class="text-danger text-error">Valid first name is required.</div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 px-3 order__form_err">
+          <label for="inputLastName" class="form-label">Фамилия</label>
+          <input formControlName="last_name" type="text" class="form-control" id="inputLastName">
+          <div *ngIf="lastName?.invalid && (lastName?.touched || lastName?.dirty)">
+            <div *ngIf="lastName?.errors?.['required']" class="text-danger text-error">Last name is required.</div>
+            <div *ngIf="lastName?.errors?.['pattern']" class="text-danger text-error">Valid last name is required.</div>
+          </div>
+        </div>
+
+        <div class="col-md-4 px-3 order__form_err">
+          <label for="inputPhone" class="form-label">Телефон</label>
+          <input formControlName="phone" type="tel" class="form-control" id="inputPhone">
+          <div *ngIf="phone?.invalid && (phone?.touched || phone?.dirty)">
+            <div *ngIf="phone?.errors?.['required']" class="text-danger text-error">Phone number is required.</div>
+            <div *ngIf="phone?.errors?.['pattern']" class="text-danger text-error">Valid phone number is required.</div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 px-3 order__form_err">
+          <label for="inputCountry" class="form-label">Страна</label>
+          <input formControlName="country" type="text" class="form-control" id="inputCountry">
+          <div *ngIf="country?.invalid && (country?.touched || country?.dirty) && country?.errors?.['required']"
+               class="text-danger text-error">
+            Country is required.
+          </div>
+        </div>
+
+        <div class="col-sm-6 px-3 order__form_err">
+          <label for="inputZip" class="form-label">Индекс</label>
+          <input formControlName="zip" type="number" class="form-control" id="inputZip">
+          <div *ngIf="zip?.invalid && (zip?.touched || zip?.dirty) && zip?.errors?.['required']"
+               class="text-danger text-error">
+            Zip is required.
+          </div>
+        </div>
+
+        <div class="col-12 px-3 order__form_err">
+          <label for="inputAddress" class="form-label">Адрес</label>
+          <input formControlName="address" type="text" class="form-control" id="inputAddress">
+          <div *ngIf="address?.invalid && (address?.touched || address?.dirty)">
+            <div *ngIf="address?.errors?.['required']" class="text-danger text-error">Address is required.</div>
+            <div *ngIf="address?.errors?.['pattern']" class="text-danger text-error">Valid address is required.</div>
+          </div>
+        </div>
+
+        <div class="col-12 px-3 order__form_err">
+          <label for="commentInput" class="form-label">Комментарий к заказу</label>
+          <input formControlName="comment" type="text" class="form-control" id="commentInput">
+        </div>
+
+        <div class="col-12 px-3 order__form_err">
+          <button [disabled]="isOrderInProcess" type="button" class="btn btn-primary" (click)="createOrder()">Отправить</button>
+          <p *ngIf="isSubmitHasError" class="d-inline ms-4 text-danger" >
+            Произошла ошибка. Попробуйте еще раз.
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template #orderThanks>
+    <div class="text-center">
+      <h1 class="mb-5">Спасибо за заказ!</h1>
+      <p class="mb-3">Мы свяжемся с вами в ближайшее время!</p>
+      <a routerLink="/" class="btn btn-primary mb-5">На главную</a>
+    </div>
+  </ng-template>
+
+</section>

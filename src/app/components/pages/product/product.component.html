@@ -1,0 +1,15 @@
+<section
+  class="product d-flex justify-content-center align-items-start row row-cols-lg-2 row-cols-1 g-4 container-md my-5 mx-auto">
+  <div class="product__img">
+    <img src="{{ product.image }}" alt="Чай {{ product.id }}">
+  </div>
+  <div>
+    <h1 class="text-center mb-3">{{ product.title }}</h1>
+    <p class="mb-3">{{ product.description }}</p>
+    <div>
+      <a routerLink="/order" [queryParams]="{product: product.title}" class="btn btn-primary px-4">Купить</a>
+      <p class="d-inline ms-4">Цена: {{ product.price | currency:'руб.' }}</p>
+    </div>
+  </div>
+</section>
+

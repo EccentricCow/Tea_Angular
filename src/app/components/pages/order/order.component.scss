@@ -1,0 +1,23 @@
+.order__form {
+  max-width: 856px;
+}
+
+.order__form_err label:nth-child(3) {
+  font-size: .8rem;
+  font-style: italic;
+  color: red;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.form-control.ng-invalid.ng-touched:focus {
+  box-shadow: 0 0 0 .25rem rgba(255, 0, 0, 0.25)
+}
+
+.text-error {
+  position: absolute;
+  font-size: 12px;
+  font-style: italic;
+}

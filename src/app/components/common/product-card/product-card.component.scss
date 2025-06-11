@@ -1,0 +1,20 @@
+.products__card {
+  max-width: 415px;
+
+  img {
+    align-self: center;
+    max-width: 250px;
+  }
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card-text {
+  max-height: 150px;
+  overflow-y: scroll;
+  -ms-overflow-y: scroll;
+}
+

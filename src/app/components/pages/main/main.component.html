@@ -1,0 +1,70 @@
+<section class="tea-gallery container-xl my-xxl-5 py-4">
+  <div class="tea-gallery__item position-relative">
+    <div
+      class="tea-gallery__item__inner d-flex flex-column gap-lg-5 gap-sm-3 gap-0 position-absolute px-md-5 px-sm-3 mx-md-5 mx-3">
+      <p class="tea-gallery__item_first-title display-6 mb-sm-3 mb-2"><strong>Скидки на травяные чаи</strong>
+      </p>
+      <p class="tea-gallery__item_text mb-sm-3 mb-2">Узнай все подробности</p>
+      <a routerLink="/products" class="tea-gallery__item-btn btn btn-primary">Каталог</a>
+    </div>
+    <img class="mw-100" src="assets/images/gallery/pic1.png" alt="Галерея 1">
+  </div>
+</section>
+
+<section class="questions my-2 py-3 my-md-5 container-md d-flex flex-column">
+  <h2 class="text-center mb-5">Ответы на часто задаваемые вопросы</h2>
+  <div class="questions__accordion mx-auto w-100" id="accordion">
+    <h3 class="questions__accordion-title position-relative bg-primary text-white py-3 pe-5">
+      Собираете ли вы подарочные боксы?
+    </h3>
+    <div>
+      <p class="my-0">
+        Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
+      </p>
+    </div>
+    <h3 class="questions__accordion-title position-relative bg-primary text-white py-3 pe-5">Сколько у вас
+      разновидностей чая?</h3>
+    <div>
+      <p class="my-0">
+        Много
+      </p>
+    </div>
+    <h3 class="questions__accordion-title position-relative bg-primary text-white py-3 pe-5">В какой срок
+      осуществляется
+      доставка?</h3>
+    <div>
+      <p class="my-0">
+        Глазом не успеете моргнуть
+      </p>
+    </div>
+    <h3 class="questions__accordion-title position-relative bg-primary text-white py-3 pe-5">У вас обновляется
+      ассортимент?</h3>
+    <div>
+      <p class="my-0">
+        Так точно
+      </p>
+    </div>
+    <h3 class="questions__accordion-title position-relative bg-primary text-white py-3 pe-5">Какого объема у вас
+      пачки чая?</h3>
+    <div>
+      <p class="my-0">
+        На всю семью хватит
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="tea-gallery__item_title display-6 mb-sm-3 mb-1 d-inline">Посмотрите наши чайные коллекции</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <a routerLink="/products" class="tea-gallery__item-btn btn btn-primary z-1" data-bs-dismiss="modal"
+           aria-label="Close">Смотреть</a>
+      </div>
+    </div>
+  </div>
+</div>
