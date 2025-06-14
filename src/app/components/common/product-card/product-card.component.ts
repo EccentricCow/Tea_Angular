@@ -9,6 +9,4 @@ import {ProductType} from "../../../types/product.type";
 export class ProductCardComponent {
 
   @Input() product!: ProductType;
-
-
 }

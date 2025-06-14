@@ -15,5 +15,4 @@ export class OrderService {
   submitOrder(data: OrderType): Observable<OrderResponseType> {
     return this.http.post<OrderResponseType>('https://testologia.ru/order-tea', data);
   }
-
 }

@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductService} from "../../../services/product.service";
 import {ProductType} from "../../../types/product.type";
 import {finalize, Subscription} from "rxjs";
-import {ProductSearchService} from "../../../services/product-search.service";
 
 @Component({
   selector: 'app-products',

@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import * as $ from 'jquery';
 import 'jquery-ui/ui/widgets/accordion';
 import {Subscription} from "rxjs";
 import {MainModalService} from "../../../services/main-modal.service";
 
 declare var bootstrap: any;
+declare var $: any;
 
 @Component({
   selector: 'app-main',
